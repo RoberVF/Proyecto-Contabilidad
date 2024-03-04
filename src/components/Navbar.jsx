@@ -142,7 +142,7 @@ function Navbar() {
                       <Disclosure.Panel className="mt-2 space-y-2">
 
                         <div className='block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 bg-gray-50'>
-                          ¿Cómo funciona?
+                          <Link to="/range">¿Cómo funciona?</Link>
 
                         </div>
                         {navRangesLevels.map((item) => (
