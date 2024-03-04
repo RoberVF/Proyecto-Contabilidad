@@ -27,23 +27,29 @@ function Navbar() {
 
 
   return (
-    <header className="bg-white">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="absolute inset-x-0 top-0 z-50">
+      <nav className="mx-auto flex justify-between lg:grid lg:grid-cols-3 max-w-7xl items-center p-6 lg:px-8" aria-label="Global">
         <Link to="/" className="font-bold text-zinc-700 text-xl md:text-2xl">Gracioseros S.A.</Link>
-        <div className="flex lg:hidden">
+        <div className="flex lg:justify-start lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open main menu'}</span>
+            {
+              mobileMenuOpen ? (
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Bars3Icon className='h-6 w-6' aria-hidden="true" />
+              )
+            }
           </button>
         </div>
-        <div className="hidden lg:block bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 mt-2 rounded">
+        <div className="hidden lg:flex lg:justify-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 mt-2 rounded">
           <Link to="/proyect">Proyecto Universidad</Link>
         </div>
-        <Popover.Group className="hidden lg:flex">
+        <Popover.Group className="hidden lg:flex lg:justify-end">
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-md font-semibold leading-6 text-gray-900">
               Rangos
