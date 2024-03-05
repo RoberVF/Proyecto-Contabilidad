@@ -46,9 +46,10 @@ function Navbar() {
             }
           </button>
         </div>
-        <div className="hidden lg:flex lg:justify-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 mt-2 rounded">
-          <Link to="/proyect">Proyecto Universidad</Link>
-        </div>
+        <Link
+          to="/proyect"
+          className="hidden lg:flex lg:justify-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 mt-2 rounded"
+        >Proyecto Universidad</Link>
         <Popover.Group className="hidden lg:flex lg:justify-end">
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-md font-semibold leading-6 text-gray-900">
@@ -117,8 +118,6 @@ function Navbar() {
             </Transition>
           </Popover>
         </Popover.Group>
-
-
       </nav>
 
 
@@ -155,21 +154,19 @@ function Navbar() {
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
 
-                        <div className='block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 bg-gray-50'>
-                          <Link
-                            to="/range"
-                            onClick={() => setMobileMenuOpen(false)}>¿Cómo funciona?</Link>
+                        <Link
+                          to="/range"
+                          className='block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 bg-gray-50'
+                          onClick={() => setMobileMenuOpen(false)}>¿Cómo funciona?</Link>
 
-                        </div>
                         {navRangesLevels.map((item) => (
-                          <Disclosure.Button
-                            key={item.name}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                          >
+                          
                             <Link
+                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                            key={item.name}
+
                               to={`/levels/${item.to}`}
                               onClick={() => setMobileMenuOpen(false)}>{item.name}</Link>
-                          </Disclosure.Button>
                         ))}
                       </Disclosure.Panel>
                     </>
