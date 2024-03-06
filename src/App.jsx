@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import HomePage from './pages/HomePage'
-import Proyect from './pages/Proyect'
+import ProyectPage from './pages/ProyectPage'
 import Range from './pages/Range'
 import About from './pages/About'
 
@@ -17,11 +17,11 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter className="prose">
       <Navbar />
       <Routes>
         <Route path="/" exact element={<HomePage />} />
-        <Route path="/proyect" element={<Proyect />} />
+        <Route path="/proyect" element={<ProyectPage />} />
         <Route path="/range" element={<Range />} />
         <Route path="/about" element={<About />} />
 
