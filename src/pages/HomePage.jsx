@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { BuildingOffice2Icon, HandThumbUpIcon, PlusIcon } from '@heroicons/react/20/solid'
+
+// Components
 import Proyect from '../components/Proyect'
+import About from '../components/About'
 
 function HomePage() {
 
@@ -22,7 +25,7 @@ function HomePage() {
 
   return (
     <div>
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative isolate pt-14 space-y-24">
 
         <section id='header'>
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
@@ -65,7 +68,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section id='proyect'>
+        <section id='proyect'  className='px-6'>
 
           {
             widthSize < 768 ? (
@@ -119,6 +122,10 @@ function HomePage() {
         </section>
 
         <section id='team'>
+          <About />
+        </section>
+
+        <section id='footer'>
 
         </section>
 

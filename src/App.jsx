@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import ProyectPage from './pages/ProyectPage'
 import Range from './pages/Range'
-import About from './pages/About'
+import About from './pages/AboutPage'
 
 //Levels
 import Level1 from './pages/levels/Level1'
@@ -17,10 +17,12 @@ import Navbar from './components/Navbar'
 
 //Assets 
 import Gradient from './assets/Gradient'
+import ScrollToTop from './assets/ScrollToTop'
 
 function App() {
   return (
     <BrowserRouter className="prose">
+      <ScrollToTop />
       <Navbar />
       <Gradient />
       <Routes>

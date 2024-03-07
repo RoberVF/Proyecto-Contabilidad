@@ -28,7 +28,7 @@ function Proyect({colorTitle, colorText}) {
                 {/* <h2 className="hidden lg:block text-base font-semibold leading-7 text-indigo-600">
                     <Link to="https://ulpgc.es" target="_blank">ULPGC</Link>
                 </h2> */}
-                <h2 className={`m-4 text-3xl font-bold tracking-tight text-${colorTitle} sm:text-4xl`}>
+                <h2 className={`text-2xl font-bold tracking-tight text-${colorTitle} lg:text-6xl`}>
                     Proyecto Universidad - Empresa
                 </h2>
                 <p className={`mt-6 text-lg leading-8 text-${colorText}`}>
