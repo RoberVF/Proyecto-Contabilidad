@@ -15,10 +15,14 @@ import LevelController from './pages/levels/LevelController'
 //Components
 import Navbar from './components/Navbar'
 
+//Assets 
+import Gradient from './assets/Gradient'
+
 function App() {
   return (
     <BrowserRouter className="prose">
       <Navbar />
+      <Gradient />
       <Routes>
         <Route path="/" exact element={<HomePage />} />
         <Route path="/proyect" element={<ProyectPage />} />
