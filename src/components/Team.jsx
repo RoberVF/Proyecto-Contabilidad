@@ -2,13 +2,14 @@ import {Link} from 'react-router-dom'
 
 const links = [
     { name: 'Universidad de Las Palmas de Gran Canaria', to: 'https://www.ulpgc.es' },
-    { name: 'Pagina Interes 2', to: '#' },
-    { name: 'Pagina Interes 3', to: '#' },
-    { name: 'Pagina interes 4', to: '#' },
+    { name: 'Proyecto Universidad-Empresa', to: '/proyect' },
+    { name: 'Sistema de Rangos', to: '/range' }
   ]
-  const stats = [
-    { name: 'Horas por actividad', value: '+ 3' },
-    { name: 'Tasa de aprobados', value: '34%' },
+  const team = [
+    { name: 'Margarita Mesa', job: 'Coordinadora y Profesora' },
+    { name: 'Sonia Granado', job: 'Profesora' },
+    { name: 'Arminda García', job: 'Profesora'},
+    { name: 'Roberto Morales', job: 'Programador'}
   ]
   
 function About() {
@@ -62,10 +63,10 @@ function About() {
               ))}
             </div>
             <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-              {stats.map((stat) => (
-                <div key={stat.name} className="flex flex-col-reverse">
-                  <dt className="text-base leading-7 text-gray-300">{stat.name}</dt>
-                  <dd className="text-2xl font-bold leading-9 tracking-tight text-white">{stat.value}</dd>
+              {team.map((teamPerson) => (
+                <div key={teamPerson.name} className="flex flex-col-reverse">
+                  <dt className="text-2xl font-bold leading-9 tracking-tight text-white">{teamPerson.name}</dt>
+                  <dd className="text-base leading-7 text-gray-300" >{teamPerson.job}</dd>
                 </div>
               ))}
             </dl>

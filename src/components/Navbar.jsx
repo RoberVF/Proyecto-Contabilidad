@@ -1,9 +1,13 @@
 import { Fragment, useState, useRef } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, ChevronDoubleRightIcon, PlusIcon } from '@heroicons/react/20/solid'
 
 import { Link } from 'react-router-dom'
+
+//Scroll Reveal
+import { Fade } from 'react-awesome-reveal'
+
 
 const navRangesLevels = [
   { name: 'Nivel 1', description: 'Comienza en el proyecto', to: 'level_1' },
@@ -28,7 +32,7 @@ function Navbar() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="mx-auto flex justify-between lg:grid lg:grid-cols-3 max-w-7xl items-center p-6 lg:px-8" aria-label="Global">
+      <nav className="mx-auto sticky-top flex justify-between lg:grid lg:grid-cols-3 max-w-7xl items-center p-6 lg:px-8" aria-label="Global">
         <Link to="/" className="font-bold text-zinc-700 text-xl md:text-2xl">Gracioseros S.A.</Link>
         <div className="flex lg:justify-start lg:hidden">
           <button
@@ -41,7 +45,7 @@ function Navbar() {
               mobileMenuOpen ? (
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               ) : (
-                <Bars3Icon className='h-6 w-6' aria-hidden="true" />
+                <Bars3BottomRightIcon className='h-6 w-6' aria-hidden="true" />
               )
             }
           </button>
