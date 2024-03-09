@@ -31,9 +31,12 @@ function Navbar() {
 
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="mx-auto sticky-top flex justify-between lg:grid lg:grid-cols-3 max-w-7xl items-center p-6 lg:px-8" aria-label="Global">
-        <Link to="/" className="font-bold text-zinc-700 text-xl md:text-2xl">Gracioseros S.A.</Link>
+    <header
+      className="absolute top-0 inset-x-0 z-50">
+      <nav className="mx-auto flex justify-between lg:grid lg:grid-cols-3 max-w-7xl items-center p-6 lg:px-8" aria-label="Global">
+        <Link to="/" className="font-thin text-zinc-700 text-xl md:text-2xl">
+          Gracioseros S.A.
+        </Link>
         <div className="flex lg:justify-start lg:hidden">
           <button
             type="button"
@@ -164,13 +167,13 @@ function Navbar() {
                           onClick={() => setMobileMenuOpen(false)}>¿Cómo funciona?</Link>
 
                         {navRangesLevels.map((item) => (
-                          
-                            <Link
+
+                          <Link
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                             key={item.name}
 
-                              to={`/levels/${item.to}`}
-                              onClick={() => setMobileMenuOpen(false)}>{item.name}</Link>
+                            to={`/levels/${item.to}`}
+                            onClick={() => setMobileMenuOpen(false)}>{item.name}</Link>
                         ))}
                       </Disclosure.Panel>
                     </>

@@ -23,7 +23,7 @@ function App() {
   return (
     <BrowserRouter className="prose">
       <ScrollToTop />
-      <Navbar />
+      <Navbar/>
       <Gradient />
       <Routes>
         <Route path="/" exact element={<HomePage />} />

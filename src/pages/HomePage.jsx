@@ -25,6 +25,33 @@ function HomePage() {
 
   }, [])
 
+  //Scroll Position, NO ESTA EN USO POR EL MOMENTO
+  const [scrollPosition, setScrollPosition] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const calculateSize = (maxScale) => {
+    //maxScale = 1 para movil
+    //maxScale = 1.25 para tablet/portatil
+    //maxScale = 1.5 para PC
+    const scale =  Math.max(1, 1 + scrollPosition * 0.001)
+    return Math.min(maxScale, scale)
+  }
+
+  const proyectStyle = (maxScale) => ({
+    transform : `scaleX(${calculateSize(maxScale)})`,
+  borderRadius: '30px'
+  })
+
+
   return (
     <div>
       <div className="relative isolate pt-14 space-y-24">
@@ -80,13 +107,13 @@ function HomePage() {
               widthSize < 768 ? (
                 <div
                   className='relative isolate container mx-auto my-3 bg-zinc-800 whitespace-pre-line shadow-xl'
-                  style={{ borderRadius: '30px', padding: '2.5rem 2rem 3rem' }}
+                  style={{borderRadius: '30px', padding: '2.5rem 2rem 3rem' }}
                 >
                   <img
                     src="/proyect_background.jpg"
                     alt="PROYECT IMAGE"
                     className='absolute inset-0  -z-10 h-full w-full object-cover object-right md:object-center'
-                    style={{ borderRadius: '30px' }} />
+                    style={{borderRadius: '30px'}} />
 
                   <div>
                     <div className='flex align-center justify-center'>
@@ -122,7 +149,7 @@ function HomePage() {
                     src="/proyect_background.jpg"
                     alt="PROYECT IMAGE"
                     className='absolute inset-0  -z-10 h-full w-full object-cover object-right md:object-center'
-                    style={{ borderRadius: '30px' }} />
+                    style={{borderRadius: '30px'}} />
 
                   <Proyect colorTitle={"white"} colorText={"white"} />
                 </div>
@@ -135,14 +162,27 @@ function HomePage() {
                   <img
                     src="/proyect_background.jpg"
                     alt="PROYECT IMAGE"
-                    className='absolute inset-0  -z-10 h-full w-full object-cover object-right md:object-center'
-                    style={{ borderRadius: '30px' }} />
+                    className='mx-auto absolute inset-0  -z-10 h-full w-full object-cover object-right md:object-center'
+                    style={{borderRadius:'30px'}}/>
 
                   <Proyect colorTitle={"white"} colorText={"white"} />
 
                 </div>
               )
             }
+          </section>
+        </Fade>
+
+        <Fade>
+          <section id='university'>
+            <div className='flex align-center justify-center'>
+            <Link to="https://www.ulpgc.es" target='_blank'>
+            <img 
+              src="https://www.ulpgc.es/sites/default/files/ArchivosULPGC/identidad-corporativa/Logo%2025%20Aniversario/logo_ulpgc_version_horizontal_positiva_de_uso_cotidiano_a_2_tintas.png" 
+              alt=""
+              className='mx-auto lg:max-w-screen-md' />
+            </Link>
+            </div>
           </section>
         </Fade>
 
