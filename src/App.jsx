@@ -23,7 +23,7 @@ import ScrollToTop from './assets/ScrollToTop'
 
 function App() {
   return (
-    <BrowserRouter className="prose">
+    <BrowserRouter className="prose" basename="/">
       <ScrollToTop />
       <Navbar/>
       <Gradient />

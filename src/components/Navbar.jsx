@@ -1,4 +1,4 @@
-import { Fragment, useState, useRef } from 'react'
+import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, ChevronDoubleRightIcon, PlusIcon } from '@heroicons/react/20/solid'
@@ -23,7 +23,6 @@ function classNames(...classes) {
 
 function Navbar() {
   //Manejo dropdown con Popover para PC
-  const { refToClose } = useRef()
 
   //Manejo hamburguer menu con Dialog para Mobile
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -41,7 +40,9 @@ function Navbar() {
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => {
+              setMobileMenuOpen(true)
+            }}
           >
             <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open main menu'}</span>
             {
@@ -56,7 +57,8 @@ function Navbar() {
         <Link
           to="/proyect"
           className="hidden lg:flex lg:justify-center bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 mt-2 rounded"
-        >Proyecto Universidad</Link>
+        >Proyecto Universidad
+        </Link>
         <Popover.Group className="hidden lg:flex lg:justify-end">
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-md font-semibold leading-6 text-gray-900">
@@ -73,8 +75,8 @@ function Navbar() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-             
-                <Popover.Panel className="absolute  -right-20 top-10 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+
+              <Popover.Panel className="absolute  -right-20 top-10 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
                   <div
                     className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -86,7 +88,6 @@ function Navbar() {
                         to={"/range"}
                         className="block w-full font-semibold text-gray-900"
                         onClick={() => {
-                          refToClose.current.close()
                           setMobileMenuOpen(false)
                         }}>
                         ¿Cómo funciona?
@@ -109,7 +110,6 @@ function Navbar() {
                           to={`level/${item.to}`}
                           className="block w-full font-semibold text-gray-900 flex-grow"
                           onClick={() => {
-                            refToClose.current.close()
                             setMobileMenuOpen(false)
                           }}>
                           {item.name}
@@ -142,7 +142,7 @@ function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true"  />
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -166,7 +166,7 @@ function Navbar() {
                           onClick={() => setMobileMenuOpen(false)}>¿Cómo funciona?</Link>
 
                         {navRangesLevels.map((item) => (
-                          
+
                           <Link
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                             key={item.name}
