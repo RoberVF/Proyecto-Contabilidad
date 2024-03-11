@@ -10,10 +10,10 @@ import { Fade } from 'react-awesome-reveal'
 
 
 const navRangesLevels = [
-  { name: 'Nivel 1', description: 'Comienza en el proyecto', to: 'level_1' },
-  { name: 'Nivel 2', description: 'Continua en el proyecto', to: 'level_2' },
-  { name: 'Nivel 3', description: 'Ultimo nivel del proyecto', to: 'level_3' },
-  { name: 'Nivel Controller', description: 'Se el mejor', to: 'level_controller' },
+  { name: 'Nivel 1', description: 'Comienza en el proyecto', to: '1' },
+  { name: 'Nivel 2', description: 'Continua en el proyecto', to: '2' },
+  { name: 'Nivel 3', description: 'Ultimo nivel del proyecto', to: '3' },
+  { name: 'Nivel Controller', description: 'Se el mejor', to: 'controller' },
 ]
 
 
@@ -46,7 +46,7 @@ function Navbar() {
             <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open main menu'}</span>
             {
               mobileMenuOpen ? (
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="h-6 w-6 " aria-hidden="true" />
               ) : (
                 <Bars3BottomRightIcon className='h-6 w-6' aria-hidden="true" />
               )
@@ -73,9 +73,8 @@ function Navbar() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel
-                className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
-              >
+             
+                <Popover.Panel className="absolute  -right-20 top-10 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
                   <div
                     className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -107,7 +106,7 @@ function Navbar() {
                       </div>
                       <div className="flex-auto flex-grow">
                         <Link
-                          to={`/levels/${item.to}`}
+                          to={`level/${item.to}`}
                           className="block w-full font-semibold text-gray-900 flex-grow"
                           onClick={() => {
                             refToClose.current.close()
@@ -134,7 +133,7 @@ function Navbar() {
           <div className="flex items-center justify-between">
             <Link
               to="/"
-              className="font-bold text-zinc-700 text-xl md:text-2xl"
+              className="font-thin text-zinc-700 text-xl md:text-2xl "
               onClick={() => setMobileMenuOpen(false)}>Gracioseros S.A.</Link>
 
             <button
@@ -143,7 +142,7 @@ function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="h-6 w-6" aria-hidden="true"  />
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -167,12 +166,12 @@ function Navbar() {
                           onClick={() => setMobileMenuOpen(false)}>¿Cómo funciona?</Link>
 
                         {navRangesLevels.map((item) => (
-
+                          
                           <Link
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                             key={item.name}
 
-                            to={`/levels/${item.to}`}
+                            to={`/level/${item.to}`}
                             onClick={() => setMobileMenuOpen(false)}>{item.name}</Link>
                         ))}
                       </Disclosure.Panel>

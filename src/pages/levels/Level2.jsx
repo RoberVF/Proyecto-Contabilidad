@@ -1,8 +1,11 @@
-import React from 'react'
+import Level from '../../components/Challenge'
+
 
 function Level2() {
   return (
-    <div>Level2</div>
+    <div className='relative py-24 sm:py-32'>
+      <Level {...levelInfo}></Level>
+    </div>
   )
 }
 
